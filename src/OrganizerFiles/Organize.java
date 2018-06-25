@@ -2,14 +2,14 @@ package OrganizerFiles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.io.File;
 /**
  *
  * @author Fahd Allebdi
  */
 public class Organize {
 
-    public static final String SEPARATOR = System.getProperty("file.separator");
+    public static final String SEPARATOR = File.separator;
     public static final String BASE_PATH = "/Users/fahd/Downloads/";
 
     // extenstions
@@ -17,7 +17,7 @@ public class Organize {
     private final String[] VIDEOS = {"mp4", "flv", "mp3", "wmv", "3gp", "avi"};
     private final String[] ARCHIVES = {"zip", "tar", "gz"};
     private final String[] DOCUMENTS = {"docx", "doc", "pdf", "ppt","pptx", "xls", "txt", "odt", "ott", "xml", "csv"};
-    private final String[] APPLICATION = {"exe", "sh", "dmg", "msi", "pkg", "app"};
+    private final String[] APPLICATION = {"exe", "sh", "dmg", "msi", "pkg"};
     private final String[] OTHERS = {"json", "php", "css", "sql", "py", "mo", "po", "jar", "war"};
 
     // folders name
@@ -32,39 +32,38 @@ public class Organize {
     }
 
     public void start() {
-        CopyFile copyFile = new CopyFile();
-
-        copyFile.moveFiles(getPICTURES(), PICTURES_FOLDER);
-        copyFile.moveFiles(getVIDEOS(), VIDEOS_FOLDER);
-        copyFile.moveFiles(getAPPLICATION(), APPLICATION_FOLDER);
-        copyFile.moveFiles(getDOCUMENTS(), DOCUMENTS_FOLDER);
-        copyFile.moveFiles(getARCHIVES(), ARCHIVES_FOLDER);
-        copyFile.moveFiles(getOTHERS(), OTHERS_FOLDER);
+ 
+        CopyFile.moveFiles(getPictures(), PICTURES_FOLDER);
+        CopyFile.moveFiles(getVideos(), VIDEOS_FOLDER);
+        CopyFile.moveFiles(getApplication(), APPLICATION_FOLDER);
+        CopyFile.moveFiles(getDocuments(), DOCUMENTS_FOLDER);
+        CopyFile.moveFiles(getArchives(), ARCHIVES_FOLDER);
+        CopyFile.moveFiles(getOthers(), OTHERS_FOLDER);
 
         System.out.println("Done");
     }
 
-    public ArrayList<String> getPICTURES() {
+    public ArrayList<String> getPictures() {
         return toArrayList(PICTURES);
     }
 
-    public ArrayList<String> getVIDEOS() {
+    public ArrayList<String> getVideos() {
         return toArrayList(VIDEOS);
     }
 
-    public ArrayList<String> getARCHIVES() {
+    public ArrayList<String> getArchives() {
         return toArrayList(ARCHIVES);
     }
 
-    public ArrayList<String> getDOCUMENTS() {
+    public ArrayList<String> getDocuments() {
         return toArrayList(DOCUMENTS);
     }
 
-    public ArrayList<String> getAPPLICATION() {
+    public ArrayList<String> getApplication() {
         return toArrayList(APPLICATION);
     }
 
-    public ArrayList getOTHERS() {
+    public ArrayList getOthers() {
         return toArrayList(OTHERS);
     }
 
